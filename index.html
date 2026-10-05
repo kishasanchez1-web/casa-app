@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa By Luxe - My Legacy Vision</title>
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF9F6; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="text-neutral-800 antialiased min-h-screen pb-24">
+    <header class="bg-white border-b border-neutral-100 sticky top-0 z-50 px-4 py-4 shadow-sm">
+        <div class="max-w-md mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="serif-title text-xl font-semibold tracking-wide text-neutral-900">Casa By Luxe</h1>
+                <p class="text-xs text-neutral-400 tracking-wider uppercase">Life Design Matrix</p>
+            </div>
+            <div id="completionBadge" class="bg-neutral-900 text-white text-xs font-semibold px-3 py-1.5 rounded-full dynamic-transition">
+                0% Designed
+            </div>
+        </div>
+    </header>
+    <main class="max-w-md mx-auto px-4 mt-6 space-y-8">
+        <section class="bg-white rounded-3xl p-6 border border-neutral-100 shadow-sm space-y-4">
+            <h2 class="serif-title text-lg font-medium text-neutral-900">Vision Architecture Balance</h2>
+            <div id="chartContainer" class="h-44 w-full flex items-end justify-between px-4 pt-4 border-b border-neutral-100 pb-2">
+                <div class="flex flex-col items-center w-12 group">
+                    <div id="bar-wealth" class="w-full bg-amber-700/80 rounded-t-lg transition-all duration-500 h-2" style="height: 5%"></div>
+                    <span class="text-[10px] uppercase tracking-wider text-neutral-400 mt-2 font-medium">Wealth</span>
+                </div>
+                <div class="flex flex-col items-center w-12 group">
+                    <div id="bar-health" class="w-full bg-emerald-800/80 rounded-t-lg transition-all duration-500 h-2" style="height: 5%"></div>
+                    <span class="text-[10px] uppercase tracking-wider text-neutral-400 mt-2 font-medium">Health</span>
+                </div>
+                <div class="flex flex-col items-center w-12 group">
+                    <div id="bar-spaces" class="w-full bg-stone-600/80 rounded-t-lg transition-all duration-500 h-2" style="height: 5%"></div>
+                    <span class="text-[10px] uppercase tracking-wider text-neutral-400 mt-2 font-medium">Spaces</span>
+                </div>
+                <div class="flex flex-col items-center w-12 group">
+                    <div id="bar-legacy" class="w-full bg-neutral-800/80 rounded-t-lg transition-all duration-500 h-2" style="height: 5%"></div>
+                    <span class="text-[10px] uppercase tracking-wider text-neutral-400 mt-2 font-medium">Legacy</span>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="serif-title text-xl font-medium text-neutral-900">Define Your Reality</h2>
+                <button onclick="clearVision()" class="text-xs text-neutral-400 hover:text-red-600 transition-colors uppercase tracking-wider">Reset Matrix</button>
+            </div>
+            <div class="bg-white rounded-3xl p-6 border border-neutral-100 shadow-sm space-y-4">
+                <h3 class="serif-title text-md font-medium text-neutral-900">Financial Independence & Flow</h3>
+                <textarea id="input-wealth" oninput="saveAndUpdate()" placeholder="Describe your exact cash flow models, automated business networks, assets..." class="w-full h-24 p-4 text-sm bg-neutral-50 rounded-2xl border border-neutral-100 focus:outline-none focus:ring-1 focus:ring-amber-700/40 focus:bg-white transition-all resize-none text-neutral-700"></textarea>
+            </div>
+            <div class="bg-white rounded-3xl p-6 border border-neutral-100 shadow-sm space-y-4">
+                <h3 class="serif-title text-md font-medium text-neutral-900">Physical Mastery & Energy</h3>
+                <textarea id="input-health" oninput="saveAndUpdate()" placeholder="Detail your daily physical energy levels, longevity focus, routines..." class="w-full h-24 p-4 text-sm bg-neutral-50 rounded-2xl border border-neutral-100 focus:outline-none focus:ring-1 focus:ring-emerald-800/40 focus:bg-white transition-all resize-none text-neutral-700"></textarea>
+            </div>
+            <div class="bg-white rounded-3xl p-6 border border-neutral-100 shadow-sm space-y-4">
+                <h3 class="serif-title text-md font-medium text-neutral-900">Environment & Living Spaces</h3>
+                <textarea id="input-spaces" oninput="saveAndUpdate()" placeholder="Describe your sanctuary. Your private properties and luxury workspaces..." class="w-full h-24 p-4 text-sm bg-neutral-50 rounded-2xl border border-neutral-100 focus:outline-none focus:ring-1 focus:ring-stone-600/40 focus:bg-white transition-all resize-none text-neutral-700"></textarea>
+            </div>
+            <div class="bg-white rounded-3xl p-6 border border-neutral-100 shadow-sm space-y-4">
+                <h3 class="serif-title text-md font-medium text-neutral-900">Scalable Influence & Creations</h3>
+                <textarea id="input-legacy" oninput="saveAndUpdate()" placeholder="What multi-format assets, software layers, or digital products have you finished..." class="w-full h-24 p-4 text-sm bg-neutral-50 rounded-2xl border border-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-800/40 focus:bg-white transition-all resize-none text-neutral-700"></textarea>
+            </div>
+        </section>
+    </main>
+    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-neutral-100 py-3 text-center px-4">
+        <a href="https://github.com" target="_blank" class="text-[11px] tracking-wider uppercase text-neutral-400 font-medium hover:text-neutral-800 transition-colors">
+            Engineered By <span class="text-neutral-900 font-semibold underline">Casa By Luxe Software Systems</span>
+        </a>
+    </footer>
+    <script>
+        const pillars = ['wealth', 'health', 'spaces', 'legacy'];
+        function saveAndUpdate() {
+            let totalLength = 0; let targetLength = 150;
+            pillars.forEach(pillar => {
+                const el = document.getElementById(`input-${pillar}`); const val = el.value;
+                localStorage.setItem(`cbl_vision_${pillar}`, val);
+                const cur = Math.min(val.length, targetLength);
+                document.getElementById(`bar-${pillar}`).style.height = `${Math.max((cur / targetLength) * 100, 5)}%`;
+                totalLength += cur;
+            });
+            document.getElementById('completionBadge').innerText = `${Math.round((totalLength / (targetLength * pillars.length)) * 100)}% Aligned`;
+        }
+        function loadSavedVision() {
+            pillars.forEach(p => { const val = localStorage.getItem(`cbl_vision_${p}`); if (val) document.getElementById(`input-${p}`).value = val; });
+            saveAndUpdate();
+        }
+        function clearVision() {
+            if(confirm("Clear current matrix data?")) {
+                pillars.forEach(p => { localStorage.removeItem(`cbl_vision_${p}`); document.getElementById(`input-${p}`).value = ''; });
+                saveAndUpdate();
+            }
+        }
+        window.onload = loadSavedVision;
+    </script>
+</body>
+</html>
