@@ -1,1 +1,64 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxera Solutions - Automated Dispute Engine</title>
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style> body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B0F19; } </style>
+</head>
+<body class="text-slate-200 antialiased min-h-screen pb-24">
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2"><span class="text-indigo-500">◈</span> Luxera Solutions</h1>
+                <p class="text-xs text-slate-400 tracking-wider uppercase font-medium">Supplier Dispute Engine</p>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Live API Bridge Active</span>
+        </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="space-y-6 lg:col-span-1">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-3xl border border-slate-800 shadow-xl space-y-4">
+                <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Revenue Protection</h2>
+                <p id="totalRecovered" class="text-4xl font-extrabold text-white tracking-tight">\$0.00</p>
+                <button onclick="shareStats()" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold py-3 rounded-xl border border-slate-700/50">𝕏 Share Capital Milestone to LinkedIn / X</button>
+            </div>
+            <div class="bg-slate-900/40 p-6 rounded-3xl border border-slate-800/80 space-y-4">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Order Exception Simulator</h3>
+                <div class="space-y-2">
+                    <button onclick="simulateTicket('damaged')" class="w-full text-left text-xs bg-slate-900 p-3 rounded-xl border border-slate-800 transition-all text-amber-400 font-medium flex justify-between items-center"><span>🚨 Transit Damage Ticket</span><span class="text-[10px] bg-amber-500/10 px-2 py-0.5 rounded">Run Node</span></button>
+                    <button onclick="simulateTicket('incorrect')" class="w-full text-left text-xs bg-slate-900 p-3 rounded-xl border border-slate-800 transition-all text-indigo-400 font-medium flex justify-between items-center"><span>📦 Wrong SKU Shipped</span><span class="text-[10px] bg-indigo-500/10 px-2 py-0.5 rounded">Run Node</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-2 space-y-6">
+            <div class="bg-slate-900/60 rounded-3xl p-6 border border-slate-800 flex flex-col h-full min-h-[400px]">
+                <h2 class="text-md font-bold text-white tracking-tight pb-3 border-b border-slate-800">Active Automation Pipeline Output</h2>
+                <div id="consoleLog" class="flex-grow mt-4 overflow-y-auto text-xs font-mono space-y-4 text-slate-400">// System ready. Waiting for order exception webhook payload...</div>
+            </div>
+        </div>
+    </main>
+    <footer class="fixed bottom-0 left-0 right-0 bg-slate-950/80 backdrop-blur-md border-t border-slate-900 py-4 text-center z-50">
+        <p class="text-[11px] tracking-wider uppercase text-slate-500 font-medium">Protected & Verified Asset Front by <span class="text-white font-bold underline">Luxera Solutions</span></p>
+    </footer>
+    <script>
+        let balance = 0.00;
+        const ticketData = {
+            damaged: { cost: 142.50, type: "Transit Structural Damage", log: "Order ID #8841-A arrived with physical fracturing rendering hardware unmerchantable. Processing claim parameters." },
+            incorrect: { cost: 89.00, type: "Incorrect Product Attribute Shipped", log: "Sourcing mismatch parameter detected between checkout manifest and physical dispatch SKU. Triggering refund." }
+        };
+        function simulateTicket(type) {
+            const data = ticketData[type]; balance += data.cost;
+            document.getElementById('totalRecovered').innerText = `$${balance.toFixed(2)}`;
+            const log = document.getElementById('consoleLog'); if (log.innerText.includes("// System ready")) log.innerHTML = "";
+            log.innerHTML = `<div class="bg-slate-950 p-4 rounded-xl border border-slate-850 mb-3"><span class="text-indigo-400 font-bold">[NODE EXECUTED]</span> ${data.type} detected. Reclaimed $${data.cost.toFixed(2)} to merchant ledger.<br><span class="text-slate-500 italic mt-1 block">"${data.log}"</span></div>` + log.innerHTML;
+        }
+        function shareStats() {
+            const txt = `Automated an active supplier audit ledger with Luxera Solutions. Intercepted and reclaimed $${balance.toFixed(2)} hands-off.`;
+            window.open(`https://twitter.com{encodeURIComponent(txt)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
